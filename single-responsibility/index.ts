@@ -50,7 +50,7 @@ store.addProduct(prod1);
 store.addProduct(prod2);
 // store.removeProduct(1);
 
-// store.generateInvoice();
+store.generateInvoice();
 
 // const invoice = new Invoice();
 // invoice.generateInvoice(store.getProducts(), store.calculateTotal());
