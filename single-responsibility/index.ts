@@ -45,15 +45,7 @@ const prod1 = new Product(1, "Pendrive", 1000, 10);
 const prod2 = new Product(2, "Keyboard", 2000, 20);
 
 const store = new Store();
-
 store.addProduct(prod1);
 store.addProduct(prod2);
-// store.removeProduct(1);
 
-store.generateInvoice();
-
-// const invoice = new Invoice();
-// invoice.generateInvoice(store.getProducts(), store.calculateTotal());
-
-// const saveToDb = new SaveInvoice();
-// saveToDb.saveInoviceToDb();
+console.table(store.getProducts());
