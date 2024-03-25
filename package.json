@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start-srp": "npx ts-node ./single-responsibility/index.ts",
     "start-oc": "npx ts-node ./open-closed/index.ts",
-    "start-ls": "npx ts-node ./liskov-substitution/index.ts"
+    "start-ls": "npx ts-node ./liskov-substitution/index.ts",
+    "start-is": "npx ts-node ./interface-segregation/is.ts"
   },
   "keywords": [],
   "author": "",
