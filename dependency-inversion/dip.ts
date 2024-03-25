@@ -1,3 +1,7 @@
+interface ISave {
+  save(): void;
+}
+
 class DataController {
   constructor(private dataService: DataService) {}
   save() {
@@ -6,19 +10,27 @@ class DataController {
 }
 
 class DataService {
-  constructor(private postgress: PostgressDb) {}
+  constructor(private db: ISave) {}
   save() {
-    this.postgress.save();
+    this.db.save();
   }
 }
 
-class PostgressDb {
+class PostgressDb implements ISave {
   save() {
     console.log("Save in postgres db");
   }
 }
+
+class MongoDb implements ISave {
+  save() {
+    console.log("Save in MongoDb db");
+  }
+}
+
 const ps = new PostgressDb();
-const ds = new DataService(ps);
+const mg = new MongoDb();
+const ds = new DataService(mg);
 const dc = new DataController(ds);
 
 dc.save();
