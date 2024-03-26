@@ -49,3 +49,6 @@ store.addProduct(prod1);
 store.addProduct(prod2);
 
 store.generateInvoice();
+
+// const invoice = new Invoice();
+// invoice.generateInvoice(store.getProducts(), store.calculateTotal());
