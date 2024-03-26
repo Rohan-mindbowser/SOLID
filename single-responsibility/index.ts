@@ -48,4 +48,4 @@ const store = new Store();
 store.addProduct(prod1);
 store.addProduct(prod2);
 
-console.table(store.getProducts());
+store.generateInvoice();
