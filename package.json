@@ -8,6 +8,7 @@
     "start-srp": "npx ts-node ./single-responsibility/index.ts",
     "start-oc": "npx ts-node ./open-closed/index.ts",
     "start-ls": "npx ts-node ./liskov-substitution/index.ts",
+    "start-ls2": "npx ts-node ./liskov-substitution/ls.ts",
     "start-is": "npx ts-node ./interface-segregation/is.ts",
     "start-di": "npx ts-node ./dependency-inversion/di.ts",
     "start-dip": "npx ts-node ./dependency-inversion/dip.ts"
