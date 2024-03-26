@@ -1,7 +1,7 @@
 interface IVehicle {
-  fly();
-  drive();
-  increaseSpeed();
+  fly(): void;
+  drive(): void;
+  increaseSpeed(): void;
 }
 
 class Plane implements IVehicle {
