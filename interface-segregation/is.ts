@@ -1,6 +1,6 @@
 interface IVehicle {
   fly(): void;
-  drive(): void;
+  decreaseSpeed(): void;
   increaseSpeed(): void;
 }
 
@@ -9,8 +9,8 @@ class Plane implements IVehicle {
     console.log("This vehicle can fly");
   }
 
-  drive() {
-    console.log("Drive this vehicle");
+  decreaseSpeed() {
+    console.log("Decrease the speed");
   }
 
   increaseSpeed() {
