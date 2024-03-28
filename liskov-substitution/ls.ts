@@ -1,36 +1,33 @@
-class BaseVehicle {
-  numberOfWheels() {
-    return 2;
+class BaseBird {
+  makeSound() {
+    console.log("Birds can fly");
   }
 }
 
-class Vehicle extends BaseVehicle {
-  hasEngine(): boolean | null {
-    return true;
+class Bird extends BaseBird {
+  fly() {
+    console.log("Birds can fly");
   }
 }
 
-class Car extends Vehicle {
-  numberOfWheels(): number {
-    return 4;
+class Sparrow extends Bird {
+  makeSound(): void {
+    console.log("Sparrow makes sound");
+  }
+
+  fly(): void {
+    console.log("Sparrow can fly");
   }
 }
 
-class Cycle extends BaseVehicle {}
-
-const vehicles: Vehicle[] = [];
-vehicles.push(new Vehicle());
-vehicles.push(new Car());
-
-const baseVehicle: BaseVehicle[] = [];
-baseVehicle.push(new Vehicle());
-baseVehicle.push(new Car());
-baseVehicle.push(new Cycle());
-
-for (let vehicle of vehicles) {
-  console.log("has Engine-->", vehicle.hasEngine());
+class Penguin extends BaseBird {
+  makeSound(): void {
+    console.log("Penguin makes sound");
+  }
 }
 
-for (let vehicle of baseVehicle) {
-  console.log("numberOfWheels-->", vehicle.numberOfWheels());
+function penguinActivity(bird: BaseBird) {
+  bird.makeSound();
 }
+
+penguinActivity(new Penguin());

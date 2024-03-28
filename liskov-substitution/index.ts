@@ -1,29 +1,33 @@
-class Vehicle {
-  numberOfWheels() {
-    return 2;
+class Bird {
+  makeSound() {
+    console.log("Birds can fly");
   }
-  hasEngine(): boolean | null {
-    return true;
-  }
-}
-
-class Car extends Vehicle {
-  numberOfWheels(): number {
-    return 4;
+  fly() {
+    console.log("Birds can fly");
   }
 }
 
-class Cycle extends Vehicle {
-  hasEngine() {
-    return null;
+class Sparrow extends Bird {
+  makeSound(): void {
+    console.log("Sparrow makes sound");
+  }
+
+  fly(): void {
+    console.log("Sparrow can fly");
   }
 }
 
-const vehicles: Vehicle[] = [];
-vehicles.push(new Vehicle());
-vehicles.push(new Car());
-vehicles.push(new Cycle());
-
-for (let vehicle of vehicles) {
-  console.log("has Engine-->", vehicle.hasEngine());
+class Penguin extends Bird {
+  makeSound(): void {
+    console.log("Penguin makes sound");
+  }
+  fly(): void {
+    throw new Error("Penguin does not fly");
+  }
 }
+
+function birdActivity(bird: Bird) {
+  bird.fly();
+}
+
+birdActivity(new Bird());
