@@ -1,6 +1,6 @@
 class BaseBird {
   makeSound() {
-    console.log("Birds can fly");
+    console.log("Birds makes sound");
   }
 }
 
