@@ -1,36 +1,34 @@
-interface ISave {
-  save(): void;
-}
+class Store {
+  user: string;
+  paymentWrapper: PaymenWrapper;
+  constructor(user: string) {
+    this.user = user;
+    this.paymentWrapper = new PaymenWrapper();
+  }
 
-class DataController {
-  constructor(private dataService: DataService) {}
-  save() {
-    this.dataService.save();
+  cardPay() {
+    this.paymentWrapper.pay(this.user, 1000);
   }
 }
 
-class DataService {
-  constructor(private db: ISave) {}
-  save() {
-    this.db.save();
+class PaymenWrapper {
+  paymentProvider = new Stripe();
+  pay(user: string, amount: number) {
+    this.paymentProvider.creditCardPay(user, amount);
   }
 }
 
-class PostgressDb implements ISave {
-  save() {
-    console.log("Save in postgres db");
+class Stripe {
+  creditCardPay(user: string, amount: number) {
+    console.log(`Payment made by ${user} of Rs. ${amount}`);
   }
 }
 
-class MongoDb implements ISave {
-  save() {
-    console.log("Save in MongoDb db");
+class Paypal {
+  debitCardPay(user: string, amount: number) {
+    console.log(`Payment made by ${user} of Rs. ${amount}`);
   }
 }
 
-const ps = new PostgressDb();
-const mg = new MongoDb();
-const ds = new DataService(mg);
-const dc = new DataController(ds);
-
-dc.save();
+const user = new Store("John");
+user.cardPay();

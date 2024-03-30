@@ -1,24 +1,27 @@
-class DataController {
-  constructor(private dataService: DataService) {}
-  save() {
-    this.dataService.save();
+class Store {
+  user: string;
+  strip: Stripe;
+  constructor(user: string) {
+    this.user = user;
+    this.strip = new Stripe();
+  }
+
+  cardPay() {
+    this.strip.creditCardPay(this.user, 1000);
   }
 }
 
-class DataService {
-  constructor(private postgress: PostgressDb) {}
-  save() {
-    this.postgress.save();
+class Stripe {
+  creditCardPay(user: string, amount: number) {
+    console.log(`Payment made by ${user} of Rs. ${amount}`);
   }
 }
 
-class PostgressDb {
-  save() {
-    console.log("Save in postgres db");
+class Paypal {
+  debitCardPay(user: string, amount: number) {
+    console.log(`Payment made by ${user} of Rs. ${amount}`);
   }
 }
-const ps = new PostgressDb();
-const ds = new DataService(ps);
-const dc = new DataController(ds);
 
-dc.save();
+const user = new Store("John");
+user.cardPay();
